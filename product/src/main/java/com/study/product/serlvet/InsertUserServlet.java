@@ -13,14 +13,15 @@ import javax.servlet.http.HttpServletResponseWrapper;
 
 import com.study.product.dto.InsertUserReqDto;
 import com.study.product.utils.RequestUtil;
+import com.study.product.utils.ResponseEntity;
 
 
 @WebServlet("/user")
-public class InsertUser extends HttpServlet {
+public class InsertUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public InsertUser() {
+    public InsertUserServlet() {
         super();
         
     }
@@ -30,6 +31,8 @@ public class InsertUser extends HttpServlet {
 		InsertUserReqDto userReqDto = RequestUtil.convertJsonData(request, InsertUserReqDto.class);
 		
 		System.out.println(userReqDto);
+		
+		ResponseEntity.ofJson(response, 200, userReqDto);
 		
 	}
 
